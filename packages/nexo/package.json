@@ -1,6 +1,6 @@
 {
     "name": "nexo",
-    "version": "1.0.0-dev",
+    "version": "1.0.0-dev.1",
     "description": "NexoJS | CLI service",
     "keywords": [
         "nexo",
@@ -32,7 +32,9 @@
         "type": "git",
         "url": "git+https://github.com/SkylixGH/Nexo.git"
     },
-    "scripts": { "watch": "nodemon --watch src -e ts --exec \"npx tsc --build && npx rollup -c\"" },
+    "scripts": {
+        "watch": "nodemon --watch src -e ts --exec \"npx tsc --build && npx rollup -c\""
+    },
     "bugs": {
         "url": "https://github.com/SkylixGH/Nexo/issues"
     },

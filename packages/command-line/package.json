@@ -1,6 +1,6 @@
 {
   "name": "@nexojs/command-line",
-  "version": "1.0.0-dev",
+  "version": "1.0.0-dev.1",
   "description": "NexoJS | Command line module",
   "keywords": [
     "command-line",
