@@ -1,5 +1,5 @@
-import I_Color from '../color/I_Color';
-import I_RGB from '../color/I_RGB';
+import I_Color from '../color/IColor';
+import I_RGB from '../color/IRGB';
 
 const colorizer = new I_Color();
 type DataForLogging = string | string[];
@@ -42,9 +42,9 @@ export default class IOut {
     ) {
         const muteText = (textToMute: string) => colorizer.withRGB(
             {
-                r: 83,
-                g: 83,
-                b: 83,
+                r: 100,
+                g: 100,
+                b: 100,
             },
             textToMute,
         );
@@ -82,7 +82,7 @@ export default class IOut {
             this.stderr.write(`${textToLog}\n`);
         };
 
-        const prefixWithBrackets = (textForPrefix: string) => `${muteText('[ ')} ${textForPrefix} ${muteText(' ]')}`;
+        const prefixWithBrackets = (textForPrefix: string) => `${muteText('[')}  ${textForPrefix}  ${muteText(']')}`;
 
         if (typeof text === 'string') {
             log(`${prefixWithBrackets(colorizePrefix())}  ${colorizeText(text)}`);
@@ -100,7 +100,11 @@ export default class IOut {
    * @param data The data to log to the console
    */
     public log(data: DataForLogging) {
-        this.logWithPrefix('•', null, data);
+        this.logWithPrefix('INFO', {
+            r: 100,
+            g: 100,
+            b: 100,
+        }, data);
     }
 
     /**
@@ -109,12 +113,8 @@ export default class IOut {
    */
     public success(data: DataForLogging) {
         this.logWithPrefix(
-            '•',
-            {
-                r: 83,
-                g: 255,
-                b: 83,
-            },
+            'SUCCESS',
+            '#50FFAB',
             data,
         );
     }
@@ -125,12 +125,8 @@ export default class IOut {
    */
     public warning(data: DataForLogging) {
         this.logWithPrefix(
-            '•',
-            {
-                r: 255,
-                g: 150,
-                b: 83,
-            },
+            'WARN',
+            '#FFFF55',
             data,
         );
     }
@@ -141,12 +137,8 @@ export default class IOut {
    */
     public error(data: DataForLogging) {
         this.logWithPrefix(
-            '•',
-            {
-                r: 255,
-                g: 83,
-                b: 83,
-            },
+            'ERR',
+            '#FF5555',
             data,
             true,
         );
@@ -158,12 +150,8 @@ export default class IOut {
    */
     public notice(data: DataForLogging) {
         this.logWithPrefix(
-            '•',
-            {
-                r: 255,
-                g: 200,
-                b: 83,
-            },
+            'NOTICE',
+            '#FFFF55',
             data,
             true,
         );

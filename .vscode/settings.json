@@ -1,5 +1,9 @@
 {
-    "cSpell.words": ["nexojs", "Skylix"],
+    "cSpell.words": [
+        "IRGB",
+        "nexojs",
+        "Skylix"
+    ],
     "editor.detectIndentation": false,
     "editor.tabSize": 4,
     "eslint.workingDirectories": [

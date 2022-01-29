@@ -1,14 +1,16 @@
-import I_Color from './color/I_Color';
-import I_Out from './logger/IOut';
+import IColorColor from './color/IColor';
+import ILoggerOut from './logger/IOut';
 
 export default class CommandLine {
     /**
    * Standard out channel
    */
-    public static out = new I_Out(process.stdout, process.stderr);
+    public static out = new ILoggerOut(process.stdout, process.stderr);
 
     /**
    * Text color utilities for the console
    */
-    public static color = new I_Color();
+    public static color = new IColorColor();
 }
+
+export { ILoggerOut };
