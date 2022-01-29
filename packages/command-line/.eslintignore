@@ -1,0 +1,6 @@
+# Node modules
+node_modules
+
+# Configs
+rollup.config.js
+tsconfig.json
