@@ -1,1 +1,1 @@
-export const name = "CLI";
+export const name = 'CLI';

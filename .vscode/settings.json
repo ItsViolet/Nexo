@@ -5,5 +5,7 @@
     "eslint.workingDirectories": [
         "./packages/command-line",
         "./packages/nexojs"
-    ]
+    ],
+    "eslint.validate": [ "javascript", "javascriptreact", "html", "typescriptreact" ],
+    "files.eol": "\n"
 }

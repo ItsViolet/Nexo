@@ -1,52 +1,58 @@
 {
-    "name": "nexojs",
-    "version": "1.0.0-dev.1",
-    "description": "NexoJS | CLI service",
-    "keywords": [
-        "nexo",
-        "nexojs",
-        "cli"
-    ],
-    "bin": "./dist/cjs.js",
-    "author": "SkylixGH",
-    "homepage": "https://github.com/SkylixGH/Nexo#readme",
-    "license": "Apache-2.0",
-    "main": "./dist/cjs.cjs",
-    "types": "./types/Nexo.d.ts",
-    "exports": {
-        "require": "./dist/cjs.cjs",
-        "import": "./dist/mjs.js"
-    },
-    "type": "module",
-    "directories": {
-        "dist": "dist",
-        "types": "types",
-        "bin": "bin"
-    },
-    "files": [
-        "dist",
-        "types",
-        "bin"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/SkylixGH/Nexo.git"
-    },
-    "bugs": {
-        "url": "https://github.com/SkylixGH/Nexo/issues"
-    },
-    "dependencies": {
-        "@rollup/plugin-typescript": "^8.3.0",
-        "rollup-plugin-banner": "^0.2.1",
-        "rollup-plugin-watch": "^1.0.1",
-        "typescript": "^4.5.5"
-    },
-    "gitHead": "15ef1c0da2cd26cc9aa91eaf792a6bcd2a177ea1",
-    "devDependencies": {
-        "eslint": "^8.8.0",
-        "eslint-config-airbnb": "^19.0.4",
-        "eslint-config-airbnb-typescript": "^16.1.0",
-        "nodemon": "^2.0.15",
-        "typescript": "^4.5.5"
-    }
+  "name": "nexojs",
+  "version": "1.0.0-dev.1",
+  "description": "NexoJS | CLI service",
+  "keywords": [
+    "nexo",
+    "nexojs",
+    "cli"
+  ],
+  "bin": "./dist/cjs.js",
+  "author": "SkylixGH",
+  "homepage": "https://github.com/SkylixGH/Nexo#readme",
+  "license": "Apache-2.0",
+  "main": "./dist/cjs.cjs",
+  "types": "./types/Nexo.d.ts",
+  "exports": {
+    "require": "./dist/cjs.cjs",
+    "import": "./dist/mjs.js"
+  },
+  "type": "module",
+  "directories": {
+    "dist": "dist",
+    "types": "types",
+    "bin": "bin"
+  },
+  "files": [
+    "dist",
+    "types",
+    "bin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SkylixGH/Nexo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SkylixGH/Nexo/issues"
+  },
+  "dependencies": {
+    "@rollup/plugin-typescript": "^8.3.0",
+    "rollup-plugin-banner": "^0.2.1",
+    "rollup-plugin-watch": "^1.0.1",
+    "typescript": "^4.5.5"
+  },
+  "gitHead": "15ef1c0da2cd26cc9aa91eaf792a6bcd2a177ea1",
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "typescript": "^4.5.5",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "eslint": "8.2.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-plugin-import": "2.25.3",
+    "eslint-plugin-jsx-a11y": "6.5.1",
+    "eslint-plugin-react": "7.28.0",
+    "eslint-plugin-react-hooks": "4.3.0"
+  }
 }
