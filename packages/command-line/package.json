@@ -47,5 +47,6 @@
     "nodemon": "^2.0.15",
     "rollup": "^2.66.1",
     "typescript": "^4.5.5"
-  }
+  },
+  "gitHead": "15ef1c0da2cd26cc9aa91eaf792a6bcd2a177ea1"
 }

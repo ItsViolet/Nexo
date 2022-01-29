@@ -1,5 +1,5 @@
 {
-    "name": "nexo",
+    "name": "nexojs",
     "version": "1.0.0-dev.1",
     "description": "NexoJS | CLI service",
     "keywords": [
@@ -40,5 +40,6 @@
     },
     "dependencies": {
         "typescript": "^4.5.5"
-    }
+    },
+    "gitHead": "15ef1c0da2cd26cc9aa91eaf792a6bcd2a177ea1"
 }
