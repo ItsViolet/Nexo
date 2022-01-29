@@ -1,2 +1,2 @@
 # Packages
-App packages of NexoJS
+Packages of NexoJS

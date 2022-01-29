@@ -1,2 +1,2 @@
 # Apps
-App applications that are for NexoJS
+Apps that are for NexoJS
