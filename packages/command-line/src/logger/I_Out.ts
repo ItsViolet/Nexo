@@ -1,12 +1,12 @@
 import I_RGB from "../color/I_RGB";
-import CommandLine, { DataForLogging } from "../CommandLine";
+import CommandLine, {DataForLogging } from "../CommandLine";
 
 export default class I_Out {
     /**
      * The standard out write stream
      */
     private stdout: NodeJS.WriteStream;
-
+    
     /**
      * The standard error write stream
      */
