@@ -1,8 +1,9 @@
 import typescript from "@rollup/plugin-typescript";
+import banner from "rollup-plugin-banner";
 
 export default [
     {
-        input: "./build/CommandLine.js",
+        input: "./build/Nexo.js",
         output: [
             {
                 file: "./dist/mjs.js",
@@ -17,6 +18,35 @@ export default [
                 file: "./dist/cjs.cjs",
                 format: "cjs",
                 plugins: [
+                    typescript({
+                        tsconfig: "./tsconfig.json",
+                    }),
+                ],
+            },
+        ],
+    },
+    {
+        input: "./build/Bin.js",
+        output: [
+            {
+                file: "./dist/bin.mjs.js",
+                format: "es",
+                plugins: [
+                    banner(() => {
+                        return "#!/usr/bin/env node --no-warnings --experimental-specifier-resolution=node";
+                    }),
+                    typescript({
+                        tsconfig: "./tsconfig.json",
+                    }),
+                ],
+            },
+            {
+                file: "./dist/bin/cjs.cjs",
+                format: "cjs",
+                plugins: [
+                    banner(() => {
+                        return "#!/usr/bin/env node --no-warnings --experimental-specifier-resolution=node";
+                    }),
                     typescript({
                         tsconfig: "./tsconfig.json",
                     }),

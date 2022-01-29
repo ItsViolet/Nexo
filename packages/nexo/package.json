@@ -33,13 +33,19 @@
         "url": "git+https://github.com/SkylixGH/Nexo.git"
     },
     "scripts": {
-        "watch": "nodemon --watch src -e ts --exec \"npx tsc --build && npx rollup -c\""
+        "watch": "nodemon --watch src -e * --exec \"npx tsc --build && npx rollup -c\""
     },
     "bugs": {
         "url": "https://github.com/SkylixGH/Nexo/issues"
     },
     "dependencies": {
+        "@rollup/plugin-typescript": "^8.3.0",
+        "rollup-plugin-banner": "^0.2.1",
         "typescript": "^4.5.5"
     },
-    "gitHead": "15ef1c0da2cd26cc9aa91eaf792a6bcd2a177ea1"
+    "gitHead": "15ef1c0da2cd26cc9aa91eaf792a6bcd2a177ea1",
+    "devDependencies": {
+        "nodemon": "^2.0.15",
+        "typescript": "^4.5.5"
+    }
 }

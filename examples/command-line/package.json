@@ -1,0 +1,7 @@
+{
+    "name": "test",
+    "scripts": {
+        "e:logging": "node --no-warnings --experimental-specifier-resolution=node ./build/logging.js",
+        "watch": "tsc --watch"
+    }
+}

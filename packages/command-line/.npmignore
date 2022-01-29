@@ -4,3 +4,4 @@ node_modules
 # Allow dist directory
 !dist
 !types
+  

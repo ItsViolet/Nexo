@@ -1,3 +1,5 @@
 {
-  "cSpell.words": ["nexojs", "Skylix"]
+  "cSpell.words": ["nexojs", "Skylix"],
+  "editor.detectIndentation": false,
+  "editor.tabSize": 4
 }
