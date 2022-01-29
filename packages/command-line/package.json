@@ -34,9 +34,6 @@
   "bugs": {
     "url": "https://github.com/SkylixGH/Nexo/issues"
   },
-  "scripts": {
-    "watch": "nodemon --watch src -e * --exec \"npx tsc --build && npx rollup -c\""
-  },
   "dependencies": {
     "chalk": "^4.1.2",
     "rollup-plugin-watch": "^1.0.1",

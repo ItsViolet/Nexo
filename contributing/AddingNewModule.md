@@ -30,7 +30,6 @@ Updating package file.
 -   Add `exports` and set it to `{ "require": "./dist/cjs.cjs", "import": "./dist/mjs.js" }`.
 -   Set `files` to `[ "dist", "types" ]`.
 -   Set `directories` to `{ "dist": "dist", "types": "types" }`.
--   Set `script` to `{ "watch": "nodemon --watch src -e ts --exec \"npx tsc --build && npx rollup -c\"" }`.
 
 ###### Step 4
 
