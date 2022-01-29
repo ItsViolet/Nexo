@@ -4,7 +4,8 @@
     "scripts": {
         "watch:tsc": "lerna exec -- \"npx tsc --watch\"",
         "watch:rollup": "lerna exec \"npx rollup -c --watch\"",
-        "watch": "run-p watch:tsc watch:rollup"
+        "watch": "run-p watch:tsc watch:rollup",
+        "postinstall": "lerna bootstrap"
     },
     "devDependencies": {
         "lerna": "^4.0.0",
