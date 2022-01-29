@@ -12,6 +12,9 @@ export default [
                     typescript({
                         tsconfig: "./tsconfig.json",
                     }),
+                    watch({
+                        dir: "./build",
+                    }),
                 ],
             },
             {
@@ -20,6 +23,9 @@ export default [
                 plugins: [
                     typescript({
                         tsconfig: "./tsconfig.json",
+                    }),
+                    watch({
+                        dir: "./build",
                     }),
                 ],
             },
@@ -38,10 +44,13 @@ export default [
                     typescript({
                         tsconfig: "./tsconfig.json",
                     }),
+                    watch({
+                        dir: "./build",
+                    }),
                 ],
             },
             {
-                file: "./dist/bin/cjs.cjs",
+                file: "./dist/bin.cjs.cjs",
                 format: "cjs",
                 plugins: [
                     banner(() => {
@@ -49,6 +58,9 @@ export default [
                     }),
                     typescript({
                         tsconfig: "./tsconfig.json",
+                    }),
+                    watch({
+                        dir: "./build",
                     }),
                 ],
             },

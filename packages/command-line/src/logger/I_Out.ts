@@ -94,7 +94,7 @@ export default class I_Out {
      * @param data The data to log to the console
      */
     public log(data: DataForLogging) {
-        this.logWithPrefix("i", null, data);
+        this.logWithPrefix("•", null, data);
     }
 
     /**
@@ -102,11 +102,15 @@ export default class I_Out {
      * @param data The success message to log to the console
      */
     public success(data: DataForLogging) {
-        this.logWithPrefix("!", {
-            r: 83,
-            g: 255,
-            b: 83
-        }, data);
+        this.logWithPrefix(
+            "•",
+            {
+                r: 83,
+                g: 255,
+                b: 83,
+            },
+            data
+        );
     }
 
     /**
@@ -148,10 +152,10 @@ export default class I_Out {
      */
     public notice(data: DataForLogging) {
         this.logWithPrefix(
-            "!",
+            "•",
             {
                 r: 255,
-                g: 150,
+                g: 200,
                 b: 83,
             },
             data,

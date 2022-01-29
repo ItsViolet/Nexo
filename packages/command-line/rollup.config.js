@@ -1,4 +1,5 @@
 import typescript from "@rollup/plugin-typescript";
+import watch from "rollup-plugin-watch";
 
 export default [
     {
@@ -11,6 +12,9 @@ export default [
                     typescript({
                         tsconfig: "./tsconfig.json",
                     }),
+                    watch({
+                        dir: "./build",
+                    }),
                 ],
             },
             {
@@ -19,6 +23,9 @@ export default [
                 plugins: [
                     typescript({
                         tsconfig: "./tsconfig.json",
+                    }),
+                    watch({
+                        dir: "./build",
                     }),
                 ],
             },
