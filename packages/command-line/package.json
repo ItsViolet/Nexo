@@ -1,49 +1,51 @@
 {
-	"name": "@nexojs/command-line",
-	"version": "1.0.0-dev",
-	"description": "NexoJS | Command line module",
-	"keywords": [
-		"command-line",
-		"cli",
-		"nexo",
-		"nexojs"
-	],
-	"author": "XFaonAE <xfaonae@protonmail.com>",
-	"homepage": "https://github.com/SkylixGH/Nexo#readme",
-	"license": "Apache-2.0",
-	"main": "./dist/cjs.cjs",
-	"type": "module",
-	"exports": {
-		"require": "./dist/cjs.cjs",
-		"import": "./dist/mjs.js"
-	},
-	"directories": {
-		"dist": "dist"
-	},
-	"files": [
-		"dist"
-	],
-	"publishConfig": {
-		"access": "public"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/SkylixGH/Nexo.git"
-	},
-	"bugs": {
-		"url": "https://github.com/SkylixGH/Nexo/issues"
-	},
-	"scripts": {
-		"watch": "nodemon --watch src -e ts --exec \"npx tsc --build && npx rollup -c\""
-	},
-	"dependencies": {
-		"chalk": "^5.0.0",
-		"rollup": "^2.66.1"
-	},
-	"devDependencies": {
-		"@rollup/plugin-typescript": "^8.3.0",
-		"@types/node": "^17.0.13",
-		"nodemon": "^2.0.15",
-		"typescript": "^4.5.5"
-	}
+  "name": "@nexojs/command-line",
+  "version": "1.0.0-dev",
+  "description": "NexoJS | Command line module",
+  "keywords": [
+    "command-line",
+    "cli",
+    "nexo",
+    "nexojs"
+  ],
+  "author": "XFaonAE <xfaonae@protonmail.com>",
+  "homepage": "https://github.com/SkylixGH/Nexo#readme",
+  "license": "Apache-2.0",
+  "main": "./dist/cjs.cjs",
+  "type": "module",
+  "types": "./types/CommandLine.d.ts",
+  "exports": {
+    "require": "./dist/cjs.cjs",
+    "import": "./dist/mjs.js"
+  },
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SkylixGH/Nexo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SkylixGH/Nexo/issues"
+  },
+  "scripts": {
+    "watch": "nodemon --watch src -e ts --exec \"npx tsc --build && npx rollup -c\""
+  },
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "typescript": "^4.5.5"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@types/node": "^17.0.13",
+    "nodemon": "^2.0.15",
+    "rollup": "^2.66.1",
+    "typescript": "^4.5.5"
+  }
 }

@@ -1,6 +1,7 @@
 # Build directories
 **/**/build
 **/**/dist
+**/**/types
 
 # Node modules
 **/**/node_modules

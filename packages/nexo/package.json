@@ -1,0 +1,42 @@
+{
+    "name": "nexo",
+    "version": "1.0.0-dev",
+    "description": "NexoJS | CLI service",
+    "keywords": [
+        "nexo",
+        "nexojs",
+        "cli"
+    ],
+    "bin": "./dist/cjs.js",
+    "author": "SkylixGH",
+    "homepage": "https://github.com/SkylixGH/Nexo#readme",
+    "license": "Apache-2.0",
+    "main": "./dist/cjs.cjs",
+    "types": "./types/Nexo.d.ts",
+    "exports": {
+        "require": "./dist/cjs.cjs",
+        "import": "./dist/mjs.js"
+    },
+    "type": "module",
+    "directories": {
+        "dist": "dist",
+        "types": "types",
+        "bin": "bin"
+    },
+    "files": [
+        "dist",
+        "types",
+        "bin"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SkylixGH/Nexo.git"
+    },
+    "scripts": { "watch": "nodemon --watch src -e ts --exec \"npx tsc --build && npx rollup -c\"" },
+    "bugs": {
+        "url": "https://github.com/SkylixGH/Nexo/issues"
+    },
+    "dependencies": {
+        "typescript": "^4.5.5"
+    }
+}
