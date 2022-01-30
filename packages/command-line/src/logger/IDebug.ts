@@ -5,6 +5,9 @@ import IColor from '../color/IColor';
 
 const colorizer = new IColor();
 
+/**
+ * NodeJS debug helper
+ */
 export default class IDebug {
     /**
      * Debugger settings

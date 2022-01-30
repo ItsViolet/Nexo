@@ -2,6 +2,9 @@ import chalk from 'chalk';
 import stripAnsi from 'strip-ansi';
 import IRGB from './IRGB';
 
+/**
+ * NodeJS text colorization and modification utils
+ */
 export default class IColor {
     /**
      * Colorize text with a hex color

@@ -1,3 +1,5 @@
-import FileSystem from "../../../packages/file-system";
+import FileSystem from "@nexojs/file-system";
+import path from "path";
 
-console.log(FileSystem)
+const hello = await FileSystem.read.run(path.join(process.cwd(), "./src/hello.world"));
+console.log(hello)

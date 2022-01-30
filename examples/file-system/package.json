@@ -4,5 +4,11 @@
   "scripts": {
     "e:write-read": "node --no-warnings --experimental-specifier-resolution=node ./build/writeRead.js",
     "watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.13"
+  },
+  "dependencies": {
+    "@nexojs/file-system": "file:../../packages/file-system"
   }
 }

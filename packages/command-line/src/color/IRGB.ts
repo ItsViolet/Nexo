@@ -256,6 +256,9 @@ type RGBColorValue =
   | 254
   | 255;
 
+/**
+ * RGB color
+ */
 export default interface IRGB {
     /**
      * Red color value

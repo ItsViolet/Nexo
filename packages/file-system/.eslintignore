@@ -5,3 +5,8 @@ node_modules
 rollup.config.js
 tsconfig.json
 .eslintrc.cjs
+
+# Builds
+dist
+types
+build

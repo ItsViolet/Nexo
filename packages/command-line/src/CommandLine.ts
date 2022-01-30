@@ -2,6 +2,9 @@ import IColorColor from './color/IColor';
 import IDebug from './logger/IDebug';
 import ILoggerOut from './logger/IOut';
 
+/**
+ * NodeJS command line utilities
+ */
 export default class CommandLine {
     /**
      * Standard out channel

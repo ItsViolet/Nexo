@@ -4,6 +4,9 @@ import IRGB from '../color/IRGB';
 const colorizer = new IColor();
 type DataForLogging = string | string[];
 
+/**
+ * NodeJS standard out/err utils
+ */
 export default class IOut {
     /**
      * The standard out write stream
