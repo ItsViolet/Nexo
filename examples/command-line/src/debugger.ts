@@ -9,3 +9,10 @@ CommandLine.debug.log({
     "//": "This is an object",
     hello: "world"
 });
+CommandLine.debug.log([
+    {
+        "//": "This is an object that will be rendered in one line",
+        hello: "world"
+    },
+    "Another line after the object rendering"
+]);

@@ -1,4 +1,5 @@
 import stripAnsi from 'strip-ansi';
+import { highlight } from 'cli-highlight';
 import IColor from '../color/IColor';
 
 const colorizer = new IColor();
@@ -91,14 +92,20 @@ export default class IDebug {
             } else if (Array.isArray(data)) {
                 data.forEach((line: any) => {
                     if (typeof line === 'object') {
-                        logStandard(`${prefixCLI!} ${JSON.stringify(line)}`);
+                        logStandard(`${prefixCLI!} ${highlight(JSON.stringify(line), {
+                            language: 'json',
+                            ignoreIllegals: true,
+                        })}`);
                         return;
                     }
 
                     logStandard(`${prefixCLI!} ${line}`);
                 });
             } else if (typeof data === 'object') {
-                const stringOBJLines = JSON.stringify(data, null, 2);
+                const stringOBJLines = highlight(JSON.stringify(data, null, 2), {
+                    language: 'json',
+                    ignoreIllegals: true,
+                });
 
                 if (stringOBJLines.split('\n').length > 0) {
                     stringOBJLines.split('\n').forEach((objLine) => {
