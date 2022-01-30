@@ -1,0 +1,12 @@
+0 silly argv {
+0 silly argv   _: [ 'add' ],
+0 silly argv   scope: '@nexojs/command-line',
+0 silly argv   globs: [],
+0 silly argv   lernaVersion: '4.0.0',
+0 silly argv   '$0': '..\\..\\..\\..\\AppData\\Roaming\\npm\\node_modules\\lerna\\cli.js',
+0 silly argv   pkg: '@types/cli-highlight'
+0 silly argv }
+1 notice cli v4.0.0
+2 verbose rootPath C:\Users\xfaon\Downloads\Nexo
+3 error HttpErrorGeneral: 404 Not Found - GET https://registry.npmjs.org/@types%2fcli-highlight - Not found
+3 error     at C:\Users\xfaon\Downloads\Nexo\node_modules\npm-registry-fetch\check-response.js:95:15
