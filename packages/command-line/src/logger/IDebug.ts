@@ -86,7 +86,28 @@ export default class IDebug {
         };
 
         if (this.logToTerminal) {
-            logStandard(`${prefixCLI!}`);
+            if (typeof data === 'string') {
+                logStandard(`${prefixCLI!} ${data}`);
+            } else if (Array.isArray(data)) {
+                data.forEach((line: any) => {
+                    if (typeof line === 'object') {
+                        logStandard(`${prefixCLI!} ${JSON.stringify(line)}`);
+                        return;
+                    }
+
+                    logStandard(`${prefixCLI!} ${line}`);
+                });
+            } else if (typeof data === 'object') {
+                const stringOBJLines = JSON.stringify(data, null, 2);
+
+                if (stringOBJLines.split('\n').length > 0) {
+                    stringOBJLines.split('\n').forEach((objLine) => {
+                        logStandard(`${prefixCLI!} ${objLine}`);
+                    });
+                } else {
+                    logStandard(`${prefixCLI!} ${stringOBJLines}`);
+                }
+            }
         }
     }
 
