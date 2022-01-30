@@ -1,8 +1,11 @@
-import chalk from "chalk";
-import I_RGB from "./I_RGB";
-import stripAnsi from "strip-ansi";
+import chalk from 'chalk';
+import stripAnsi from 'strip-ansi';
+import IRGB from './IRGB';
 
-export default class I_Color {
+/**
+ * NodeJS text colorization and modification utils
+ */
+export default class IColor {
     /**
      * Colorize text with a hex color
      * @param hexColor The hex color for the text
@@ -19,7 +22,7 @@ export default class I_Color {
      * @param text The text to colorize
      * @returns The colorized text
      */
-    public withRGB(rgbColor: I_RGB, text: string) {
+    public withRGB(rgbColor: IRGB, text: string) {
         return chalk.rgb(rgbColor.r, rgbColor.g, rgbColor.b)(text);
     }
 

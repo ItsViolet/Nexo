@@ -1,50 +1,53 @@
-import I_Color from '../color/I_Color';
-import I_RGB from '../color/I_RGB';
+import IColor from '../color/IColor';
+import IRGB from '../color/IRGB';
 
-const colorizer = new I_Color();
+const colorizer = new IColor();
 type DataForLogging = string | string[];
 
+/**
+ * NodeJS standard out/err utils
+ */
 export default class IOut {
     /**
-   * The standard out write stream
-   */
+     * The standard out write stream
+     */
     private stdout: NodeJS.WriteStream;
 
     /**
-   * The standard error write stream
-   */
+     * The standard error write stream
+     */
     private stderr: NodeJS.WriteStream;
 
     /**
-   * Create a new STDOUT wrapper
-   * @param stdout Standard out write stream
-   * @param stderr Standard error write steam
-   */
+     * Create a new STDOUT wrapper
+     * @param stdout Standard out write stream
+     * @param stderr Standard error write steam
+     */
     public constructor(stdout: NodeJS.WriteStream, stderr: NodeJS.WriteStream) {
         this.stdout = stdout;
         this.stderr = stderr;
     }
 
     /**
-   * Log a message into the terminal
-   * @param prefix The prefix
-   * @param color The prefix's color
-   * @param text The text to log
-   * @param colorTextWithPrefix Whether to apply the prefix color to the text
-   * @param channel Whether to send the message to the error or standard channel
-   */
+     * Log a message into the terminal
+     * @param prefix The prefix
+     * @param color The prefix's color
+     * @param text The text to log
+     * @param colorTextWithPrefix Whether to apply the prefix color to the text
+     * @param channel Whether to send the message to the error or standard channel
+     */
     public logWithPrefix(
         prefix: string,
-        color: I_RGB | string | null,
+        color: IRGB | string | null,
         text: string | string[],
         colorTextWithPrefix = false,
-        channel = 'out' as 'out' | 'error',
+        channel: 'out' | 'error' = 'out',
     ) {
         const muteText = (textToMute: string) => colorizer.withRGB(
             {
-                r: 83,
-                g: 83,
-                b: 83,
+                r: 100,
+                g: 100,
+                b: 100,
             },
             textToMute,
         );
@@ -82,7 +85,7 @@ export default class IOut {
             this.stderr.write(`${textToLog}\n`);
         };
 
-        const prefixWithBrackets = (textForPrefix: string) => `${muteText('[ ')} ${textForPrefix} ${muteText(' ]')}`;
+        const prefixWithBrackets = (textForPrefix: string) => `${muteText('[')}  ${textForPrefix}  ${muteText(']')}`;
 
         if (typeof text === 'string') {
             log(`${prefixWithBrackets(colorizePrefix())}  ${colorizeText(text)}`);
@@ -96,76 +99,50 @@ export default class IOut {
     }
 
     /**
-   * Log a message out into the console
-   * @param data The data to log to the console
-   */
+     * Log a message out into the console
+     * @param data The data to log to the console
+     */
     public log(data: DataForLogging) {
-        this.logWithPrefix('•', null, data);
+        this.logWithPrefix(
+            'INFO',
+            {
+                r: 100,
+                g: 100,
+                b: 100,
+            },
+            data,
+        );
     }
 
     /**
-   * Log a success message out into the console
-   * @param data The success message to log to the console
-   */
+     * Log a success message out into the console
+     * @param data The success message to log to the console
+     */
     public success(data: DataForLogging) {
-        this.logWithPrefix(
-            '•',
-            {
-                r: 83,
-                g: 255,
-                b: 83,
-            },
-            data,
-        );
+        this.logWithPrefix('SUCCESS', '#50FFAB', data);
     }
 
     /**
-   * Log a warning message into the console
-   * @param data The data to warn in the console
-   */
+     * Log a warning message into the console
+     * @param data The data to warn in the console
+     */
     public warning(data: DataForLogging) {
-        this.logWithPrefix(
-            '•',
-            {
-                r: 255,
-                g: 150,
-                b: 83,
-            },
-            data,
-        );
+        this.logWithPrefix('WARN', '#FFFF55', data);
     }
 
     /**
-   * Log an error message out into the console
-   * @param data The error message to log to the console
-   */
+     * Log an error message out into the console
+     * @param data The error message to log to the console
+     */
     public error(data: DataForLogging) {
-        this.logWithPrefix(
-            '•',
-            {
-                r: 255,
-                g: 83,
-                b: 83,
-            },
-            data,
-            true,
-        );
+        this.logWithPrefix('ERR', '#FF5555', data, true, 'error');
     }
 
     /**
-   * Log a notice message into the console
-   * @param data The notice to write
-   */
+     * Log a notice message into the console
+     * @param data The notice to write
+     */
     public notice(data: DataForLogging) {
-        this.logWithPrefix(
-            '•',
-            {
-                r: 255,
-                g: 200,
-                b: 83,
-            },
-            data,
-            true,
-        );
+        this.logWithPrefix('NOTICE', '#FFFF55', data, true);
     }
 }
