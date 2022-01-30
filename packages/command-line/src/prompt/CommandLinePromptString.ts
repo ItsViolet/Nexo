@@ -1,13 +1,13 @@
 import chalk from "chalk";
 import cliCursor from "cli-cursor";
-import Terminal from "../CommandLine";
+import CommandLine from "../CommandLine";
 import KeyPressMeta from "./KeyPressMeta";
-import TerminalPrompt from "./TerminalPrompt";
+import CommandLinePrompt from "./CommandLinePrompt";
 
 /**
  * Class containing methods for creating string prompts
  */
-export default class TerminalPromptString {
+export default class CommandLinePromptString {
 	/**
 	 * The number of lines rendered
 	 */
@@ -87,7 +87,7 @@ export default class TerminalPromptString {
 					(this.currentValue.length > 0 ? this.currentValue : this.defaultAnswer) + "";
 
 				const stopAppButNoSuccess = () => {
-					TerminalPrompt.removeKeyListeners();
+					CommandLinePrompt.removeKeyListeners();
 
 					clearInterval(cursorLoop);
 					this._isRunning = false;
@@ -133,7 +133,7 @@ export default class TerminalPromptString {
 			if (!this.done) this.renderLines();
 		};
 
-		TerminalPrompt.addKeyListener(keyListener);
+		CommandLinePrompt.addKeyListener(keyListener);
 	}
 
 	/**
@@ -141,7 +141,7 @@ export default class TerminalPromptString {
 	 */
 	private static renderLines() {
 		const render = () => {
-			this.renderedLines = TerminalPrompt.renderLines(
+			this.renderedLines = CommandLinePrompt.renderLines(
 				`${this.done ? chalk.hex("#999999")("✓") : chalk.hex("#999999")("?")} ${this.question}${
 					this.defaultAnswer ? chalk.hex("#999999")(" [ " + this.defaultAnswer + " ]") : ""
 				}: ${this.currentValue}${this.cursorVisibility ? "|" : ""}`
@@ -153,7 +153,7 @@ export default class TerminalPromptString {
 			return;
 		}
 
-		TerminalPrompt.clearLinesFrom(-this.renderedLines);
+		CommandLinePrompt.clearLinesFrom(-this.renderedLines);
 		render();
 	}
 

@@ -5,10 +5,10 @@ import AnimationItem from "./animations/AnimationItem";
 import CommandLineAnimation from "./animations/CommandLineAnimation";
 import AnimationMeta from "./animations/AnimationMeta";
 import CommandLineAnimationState from "./animations/CommandLineAnimationState";
-import TerminalPrompt from "./prompt/TerminalPrompt";
-import TerminalPromptString from "./prompt/TerminalPromptString";
-import TerminalPromptBoolean from "./prompt/TerminalPromptBoolean";
-import TerminalPromptSelect from "./prompt/TerminalPromptSelect";
+import CommandLinePrompt from "./prompt/CommandLinePrompt";
+import CommandLinePromptString from "./prompt/CommandLinePromptString";
+import CommandLinePromptBoolean from "./prompt/CommandLinePromptBoolean";
+import CommandLinePromptSelect from "./prompt/CommandLinePromptSelect";
 import IColorColor from './color/IColor';
 import IDebug from './logger/IDebug';
 import ILoggerOut from './logger/IOut';
@@ -34,14 +34,14 @@ export default class CommandLine {
 }
 
 export {
-	TerminalPrompt,
+	CommandLinePrompt,
 	KeyPressMeta,
 	CommandLineAnimation as CommandLineAnimation,
 	AnimationMeta,
 	AnimationItem,
 	CommandLineAnimationState,
-	TerminalPromptBoolean,
-	TerminalPromptSelect,
-	TerminalPromptString,
+	CommandLinePromptBoolean,
+	CommandLinePromptSelect,
+	CommandLinePromptString,
 };
 export { ILoggerOut };

@@ -29,7 +29,7 @@ export default class IColor {
     /**
      * Reset the color of text
      * @param text The text to reset the colors of
-     * @returns The text with the default color of the cli/terminal
+     * @returns The text with the default color of the cli/CommandLine
      */
     public reset(text: string) {
         return chalk.reset(text);

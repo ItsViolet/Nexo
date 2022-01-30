@@ -2,16 +2,16 @@ import chalk from "chalk";
 import cliCursor from "cli-cursor";
 import {
 	CommandLineAnimationState,
-	TerminalPrompt,
-	TerminalPromptBoolean,
-	TerminalPromptSelect,
-	TerminalPromptString,
+	CommandLinePrompt,
+	CommandLinePromptBoolean,
+	CommandLinePromptSelect,
+	CommandLinePromptString,
 } from "../CommandLine";
 import AnimationItem from "./AnimationItem";
 import AnimationMeta from "./AnimationMeta";
 
 /**
- * Create animations in the terminal
+ * Create animations in the CommandLine
  */
 export default class CommandLineAnimation {
 	/**
@@ -45,9 +45,9 @@ export default class CommandLineAnimation {
 	 */
 	public static start(animations: AnimationItem | AnimationItem[]) {
 		if (
-			TerminalPromptString.isRunning ||
-			TerminalPromptBoolean.isRunning ||
-			TerminalPromptSelect.isRunning ||
+			CommandLinePromptString.isRunning ||
+			CommandLinePromptBoolean.isRunning ||
+			CommandLinePromptSelect.isRunning ||
 			this.isRunning
 		) {
 			return;
@@ -60,7 +60,7 @@ export default class CommandLineAnimation {
 
 		cliCursor.hide();
 
-		TerminalPrompt.addKeyListener((value: any, key: { name: string; ctrl: any; }) => {
+		CommandLinePrompt.addKeyListener((value: any, key: { name: string; ctrl: any; }) => {
 			if (key.name == "c" && key.ctrl) {
 				process.exit();
 			}
@@ -161,11 +161,11 @@ export default class CommandLineAnimation {
 				);
 			});
 
-			this.linesRendered = TerminalPrompt.renderLines(lines);
+			this.linesRendered = CommandLinePrompt.renderLines(lines);
 		};
 
 		if (this.linesRendered) {
-			TerminalPrompt.clearLinesFrom(-this.linesRendered);
+			CommandLinePrompt.clearLinesFrom(-this.linesRendered);
 
 			render();
 			return;
@@ -197,7 +197,7 @@ export default class CommandLineAnimation {
 
 		if (stoppedAnimation == this.currentAnimationMeta.length) {
 			this._isRunning = false;
-			TerminalPrompt.removeKeyListeners();
+			CommandLinePrompt.removeKeyListeners();
 			cliCursor.show();
 			clearInterval(this.loop);
 		}
@@ -236,7 +236,7 @@ export default class CommandLineAnimation {
 		this.currentAnimationMeta = newMeta;
 
 		this._isRunning = false;
-		TerminalPrompt.removeKeyListeners();
+		CommandLinePrompt.removeKeyListeners();
 		cliCursor.show();
 		clearInterval(this.loop);
 

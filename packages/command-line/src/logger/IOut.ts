@@ -29,7 +29,7 @@ export default class IOut {
     }
 
     /**
-     * Log a message into the terminal
+     * Log a message into the CommandLine
      * @param prefix The prefix
      * @param color The prefix's color
      * @param text The text to log

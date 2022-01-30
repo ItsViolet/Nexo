@@ -3,9 +3,9 @@ import readline from "readline";
 import stripAnsi from "strip-ansi";
 
 /**
- * Create interactive prompts in the terminal
+ * Create interactive prompts in the CommandLine
  */
-export default class TerminalPrompt {
+export default class CommandLinePrompt {
 	/**
 	 * All key press listeners
 	 */

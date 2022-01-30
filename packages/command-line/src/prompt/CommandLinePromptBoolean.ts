@@ -1,11 +1,11 @@
 import chalk from "chalk";
 import cliCursor from "cli-cursor";
-import TerminalPrompt from "./TerminalPrompt";
+import CommandLinePrompt from "./CommandLinePrompt";
 
 /**
  * Class containing methods for creating boolean prompts
  */
-export default class TerminalPromptBoolean {
+export default class CommandLinePromptBoolean {
 	/**
 	 * The prompt question
 	 */
@@ -55,7 +55,7 @@ export default class TerminalPromptBoolean {
 		cliCursor.hide();
 		this.renderLines();
 
-		TerminalPrompt.addKeyListener((value, key) => {
+		CommandLinePrompt.addKeyListener((value, key) => {
 			if (key.name == "c" && key.ctrl) {
 				this.halted = true;
 
@@ -91,7 +91,7 @@ export default class TerminalPromptBoolean {
 			this.renderLines();
 
 			if (this.done) {
-				TerminalPrompt.removeKeyListeners();
+				CommandLinePrompt.removeKeyListeners();
 
 				cliCursor.show();
 				callback(this.currentValue);
@@ -120,7 +120,7 @@ export default class TerminalPromptBoolean {
 				}
 			}
 
-			this.linesRendered = TerminalPrompt.renderLines(
+			this.linesRendered = CommandLinePrompt.renderLines(
 				`${this.halted ? chalk.hex("#FF5555")("?") : this.done ? chalkGray("✓") : chalkGray("?")} ${
 					this.question
 				}: ${yesNoArea}`
@@ -132,7 +132,7 @@ export default class TerminalPromptBoolean {
 			return;
 		}
 
-		TerminalPrompt.clearLinesFrom(-this.linesRendered);
+		CommandLinePrompt.clearLinesFrom(-this.linesRendered);
 		render();
 	}
 

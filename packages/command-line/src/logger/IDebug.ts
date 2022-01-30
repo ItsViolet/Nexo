@@ -13,7 +13,7 @@ export default class IDebug {
      * Debugger settings
      */
     private settings = {
-        outputToTerminal: false,
+        outputToCommandLine: false,
         generateLogFiles: false,
     };
 
@@ -43,11 +43,11 @@ export default class IDebug {
     }
 
     /**
-     * Whether to log debug output into the terminal
+     * Whether to log debug output into the CommandLine
      * @param mode The mode for logging debug data to the std out/err channels
      */
     public setSettingLogDebugOutput(mode: boolean) {
-        this.settings.outputToTerminal = mode;
+        this.settings.outputToCommandLine = mode;
     }
 
     /**
@@ -69,7 +69,7 @@ export default class IDebug {
         }, text);
 
         const timeStampText = DateTime.fromJSDate(new Date()).toFormat('MMM d yyyy, hh:mm:ss a');
-        if (this.settings.outputToTerminal) prefixCLI = `${colorMute('[')}  ${stripAnsi(prefixTag)}  ${colorMute(']')}`;
+        if (this.settings.outputToCommandLine) prefixCLI = `${colorMute('[')}  ${stripAnsi(prefixTag)}  ${colorMute(']')}`;
         // if (this.settings.generateLogFiles) prefixTXT = `[  ${stripAnsi(prefixTag)}  ]`;
 
         const logStandard = (text: string) => {
@@ -83,7 +83,7 @@ export default class IDebug {
             this.stderr.write(`${timeStampCLI} ${text}\n`);
         };
 
-        if (this.settings.outputToTerminal) {
+        if (this.settings.outputToCommandLine) {
             if (typeof data === 'string') {
                 logStandard(`${prefixCLI!} ${data}`);
             } else if (Array.isArray(data)) {

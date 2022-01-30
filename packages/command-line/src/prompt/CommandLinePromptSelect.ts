@@ -1,6 +1,6 @@
 import chalk from "chalk";
 import cliCursor from "cli-cursor";
-import TerminalPrompt from "./TerminalPrompt";
+import CommandLinePrompt from "./CommandLinePrompt";
 
 type AnswerType = {
 	label: string;
@@ -10,7 +10,7 @@ type AnswerType = {
 /**
  * A select prompt
  */
-export default class TerminalPromptSelect {
+export default class CommandLinePromptSelect {
 	/**
 	 * If is running
 	 */
@@ -65,14 +65,14 @@ export default class TerminalPromptSelect {
 
 		cliCursor.hide();
 
-		TerminalPrompt.addKeyListener((value, key) => {
+		CommandLinePrompt.addKeyListener((value, key) => {
 			if (key.name == "c" && key.ctrl) {
 				process.exit();
 			}
 
 			if (key.name == "return") {
 				this.done = true;
-				TerminalPrompt.removeKeyListeners();
+				CommandLinePrompt.removeKeyListeners();
 
 				this.renderLines();
 				cliCursor.show();
@@ -129,7 +129,7 @@ export default class TerminalPromptSelect {
 				});
 			}
 
-			this.linesRendered = TerminalPrompt.renderLines([
+			this.linesRendered = CommandLinePrompt.renderLines([
 				`${chalkGray(this.done ? "✓" : "?")} ${this.question}: ${finalAnswer ? finalAnswer : ""}`,
 				...(this.done ? [] : optionsWithSelected),
 			]);
@@ -140,7 +140,7 @@ export default class TerminalPromptSelect {
 			return;
 		}
 
-		TerminalPrompt.clearLinesFrom(-this.linesRendered);
+		CommandLinePrompt.clearLinesFrom(-this.linesRendered);
 		render();
 	}
 
