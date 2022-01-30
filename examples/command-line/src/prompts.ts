@@ -15,6 +15,6 @@ setTimeout(() => {
 	CommandLineAnimation.stopAll(
 		"core",
 		CommandLineAnimationState.error,
-		"Couldn't start core because it does't exist"
+		"This is an intentional error to check functionality"
 	);
 }, 1000);

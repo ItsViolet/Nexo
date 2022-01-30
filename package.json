@@ -1,0 +1,17 @@
+{
+    "name": "root",
+    "private": true,
+    "scripts": {
+        "watch:tsc": "lerna exec -- \"npx tsc --watch\"",
+        "watch:rollup": "lerna exec \"npx rollup -c --watch\"",
+        "watch": "run-p watch:tsc watch:rollup",
+        "postinstall": "lerna bootstrap"
+    },
+    "devDependencies": {
+        "lerna": "^4.0.0",
+        "npm-run-all": "^4.1.5"
+    },
+    "dependencies": {
+        "typescript": "^4.5.5"
+    }
+}
