@@ -1,24 +1,23 @@
 import stripAnsi from 'strip-ansi';
 import { highlight } from 'cli-highlight';
+import { DateTime } from 'luxon';
 import IColor from '../color/IColor';
 
 const colorizer = new IColor();
 
 export default class IDebug {
     /**
-     * Whether the debugger is enabled
+     * Debugger settings
      */
-    private enabled = false;
+    private settings = {
+        outputToTerminal: false,
+        generateLogFiles: false,
+    };
 
     /**
-     * Whether to log the output to the terminal
+     * Whether the first debug file was generated for this application session
      */
-    private logToTerminal = false;
-
-    /**
-     * Whether to generate debug log files
-     */
-    private generateLogFiles = false;
+    private initialFileWritten = false;
 
     /**
      * The STDOUT write channel
@@ -41,19 +40,11 @@ export default class IDebug {
     }
 
     /**
-     * Enable or disable the debugger
-     * @param mode The mode for the debugger
-     */
-    public setSettingDebuggerEnabled(mode: boolean) {
-        this.enabled = mode;
-    }
-
-    /**
      * Whether to log debug output into the terminal
      * @param mode The mode for logging debug data to the std out/err channels
      */
     public setSettingLogDebugOutput(mode: boolean) {
-        this.logToTerminal = mode;
+        this.settings.outputToTerminal = mode;
     }
 
     /**
@@ -61,7 +52,7 @@ export default class IDebug {
      * @param mode The mode for generating debug files
      */
     public setSettingGenerateDebugFiles(mode: boolean) {
-        this.generateLogFiles = mode;
+        this.settings.generateLogFiles = mode;
     }
 
     public logWithPrefixTag(prefixTag: string, data: any, channel: 'out' | 'error' = 'out') {
@@ -74,19 +65,22 @@ export default class IDebug {
             b: 100,
         }, text);
 
-        if (this.logToTerminal) prefixCLI = `${colorMute('[')} ${stripAnsi(prefixTag)} ${colorMute(']')}`;
-        if (this.generateLogFiles) prefixTXT = `[ ${stripAnsi(prefixTag)} ]`;
+        const timeStampText = DateTime.fromJSDate(new Date()).toFormat('MMM d yyyy, hh:mm:ss a');
+        if (this.settings.outputToTerminal) prefixCLI = `${colorMute('[')}  ${stripAnsi(prefixTag)}  ${colorMute(']')}`;
+        if (this.settings.generateLogFiles) prefixTXT = `[  ${stripAnsi(prefixTag)}  ]`;
 
         const logStandard = (text: string) => {
+            const timeStampCLI = `${colorMute(`[  ${timeStampText}  ]`)}`;
+
             if (channel === 'out') {
-                this.stdout.write(`${text}\n`);
+                this.stdout.write(`${timeStampCLI} ${text}\n`);
                 return;
             }
 
-            this.stderr.write(`${text}\n`);
+            this.stderr.write(`${timeStampCLI} ${text}\n`);
         };
 
-        if (this.logToTerminal) {
+        if (this.settings.outputToTerminal) {
             if (typeof data === 'string') {
                 logStandard(`${prefixCLI!} ${data}`);
             } else if (Array.isArray(data)) {
@@ -108,7 +102,7 @@ export default class IDebug {
                 });
 
                 if (stringOBJLines.split('\n').length > 0) {
-                    stringOBJLines.split('\n').forEach((objLine) => {
+                    stringOBJLines.split('\n').forEach((objLine: string) => {
                         logStandard(`${prefixCLI!} ${objLine}`);
                     });
                 } else {
