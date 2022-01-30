@@ -1,5 +1,6 @@
 {
   "name": "test",
+  "type": "module",
   "scripts": {
     "e:logging": "node --no-warnings --experimental-specifier-resolution=node ./build/logging.js",
     "e:debugger": "node --no-warnings --experimental-specifier-resolution=node ./build/debugger.js",

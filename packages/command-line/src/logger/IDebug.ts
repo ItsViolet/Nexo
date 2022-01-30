@@ -56,7 +56,7 @@ export default class IDebug {
     }
 
     public logWithPrefixTag(prefixTag: string, data: any, channel: 'out' | 'error' = 'out') {
-        let prefixTXT: string;
+        // let prefixTXT: string;
         let prefixCLI: string;
 
         const colorMute = (text: string) => colorizer.withRGB({
@@ -67,7 +67,7 @@ export default class IDebug {
 
         const timeStampText = DateTime.fromJSDate(new Date()).toFormat('MMM d yyyy, hh:mm:ss a');
         if (this.settings.outputToTerminal) prefixCLI = `${colorMute('[')}  ${stripAnsi(prefixTag)}  ${colorMute(']')}`;
-        if (this.settings.generateLogFiles) prefixTXT = `[  ${stripAnsi(prefixTag)}  ]`;
+        // if (this.settings.generateLogFiles) prefixTXT = `[  ${stripAnsi(prefixTag)}  ]`;
 
         const logStandard = (text: string) => {
             const timeStampCLI = `${colorMute(`[  ${timeStampText}  ]`)}`;

@@ -3,7 +3,7 @@
     "compilerOptions": {
         "outDir": "build",
         "target": "ESNext",
-        "module": "CommonJS",
+        "module": "ESNext",
         "rootDir": "./src"
     },
     "include": ["src/**/*.ts"]
