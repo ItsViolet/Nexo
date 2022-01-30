@@ -11,6 +11,8 @@ export default class CommandLine {
    * Text color utilities for the console
    */
     public static color = new IColorColor();
+
+    public static debug = new 
 }
 
 export { ILoggerOut };

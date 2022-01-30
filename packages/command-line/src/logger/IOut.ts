@@ -1,7 +1,7 @@
-import I_Color from '../color/IColor';
-import I_RGB from '../color/IRGB';
+import IColor from '../color/IColor';
+import IRGB from '../color/IRGB';
 
-const colorizer = new I_Color();
+const colorizer = new IColor();
 type DataForLogging = string | string[];
 
 export default class IOut {
@@ -35,10 +35,10 @@ export default class IOut {
    */
     public logWithPrefix(
         prefix: string,
-        color: I_RGB | string | null,
+        color: IRGB | string | null,
         text: string | string[],
         colorTextWithPrefix = false,
-        channel = 'out' as 'out' | 'error',
+        channel: 'out' | 'error' = 'out',
     ) {
         const muteText = (textToMute: string) => colorizer.withRGB(
             {
@@ -100,11 +100,15 @@ export default class IOut {
    * @param data The data to log to the console
    */
     public log(data: DataForLogging) {
-        this.logWithPrefix('INFO', {
-            r: 100,
-            g: 100,
-            b: 100,
-        }, data);
+        this.logWithPrefix(
+            'INFO',
+            {
+                r: 100,
+                g: 100,
+                b: 100,
+            },
+            data,
+        );
     }
 
     /**
@@ -112,11 +116,7 @@ export default class IOut {
    * @param data The success message to log to the console
    */
     public success(data: DataForLogging) {
-        this.logWithPrefix(
-            'SUCCESS',
-            '#50FFAB',
-            data,
-        );
+        this.logWithPrefix('SUCCESS', '#50FFAB', data);
     }
 
     /**
@@ -124,11 +124,7 @@ export default class IOut {
    * @param data The data to warn in the console
    */
     public warning(data: DataForLogging) {
-        this.logWithPrefix(
-            'WARN',
-            '#FFFF55',
-            data,
-        );
+        this.logWithPrefix('WARN', '#FFFF55', data);
     }
 
     /**
@@ -136,12 +132,7 @@ export default class IOut {
    * @param data The error message to log to the console
    */
     public error(data: DataForLogging) {
-        this.logWithPrefix(
-            'ERR',
-            '#FF5555',
-            data,
-            true,
-        );
+        this.logWithPrefix('ERR', '#FF5555', data, true, 'error');
     }
 
     /**
@@ -149,11 +140,6 @@ export default class IOut {
    * @param data The notice to write
    */
     public notice(data: DataForLogging) {
-        this.logWithPrefix(
-            'NOTICE',
-            '#FFFF55',
-            data,
-            true,
-        );
+        this.logWithPrefix('NOTICE', '#FFFF55', data, true);
     }
 }
