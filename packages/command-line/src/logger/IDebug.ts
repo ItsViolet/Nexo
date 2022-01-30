@@ -1,3 +1,8 @@
+import stripAnsi from 'strip-ansi';
+import IColor from '../color/IColor';
+
+const colorizer = new IColor();
+
 export default class IDebug {
     /**
      * Whether the debugger is enabled
@@ -56,5 +61,36 @@ export default class IDebug {
      */
     public setSettingGenerateDebugFiles(mode: boolean) {
         this.generateLogFiles = mode;
+    }
+
+    public logWithPrefixTag(prefixTag: string, data: any, channel: 'out' | 'error' = 'out') {
+        let prefixTXT: string;
+        let prefixCLI: string;
+
+        const colorMute = (text: string) => colorizer.withRGB({
+            r: 100,
+            g: 100,
+            b: 100,
+        }, text);
+
+        if (this.logToTerminal) prefixCLI = `${colorMute('[')} ${stripAnsi(prefixTag)} ${colorMute(']')}`;
+        if (this.generateLogFiles) prefixTXT = `[ ${stripAnsi(prefixTag)} ]`;
+
+        const logStandard = (text: string) => {
+            if (channel === 'out') {
+                this.stdout.write(`${text}\n`);
+                return;
+            }
+
+            this.stderr.write(`${text}\n`);
+        };
+
+        if (this.logToTerminal) {
+            logStandard(`${prefixCLI!}`);
+        }
+    }
+
+    public log(data: any) {
+        this.logWithPrefixTag('INFO', data);
     }
 }
