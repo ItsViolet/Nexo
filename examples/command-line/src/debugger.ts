@@ -1,4 +1,4 @@
-import CommandLine from "../../../packages/command-line";
+import CommandLine from "@nexojs/command-line";
 
 CommandLine.debug.setSettingLogDebugOutput(true);
 
