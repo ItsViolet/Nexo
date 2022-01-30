@@ -1,0 +1,58 @@
+{
+  "name": "@nexojs/file-system",
+  "version": "1.0.0-dev.1",
+  "description": "NexoJS | File system module",
+  "keywords": [
+    "nexo",
+    "nexojs",
+    "file-system"
+  ],
+  "author": "SkylixGH",
+  "homepage": "https://github.com/SkylixGH/Nexo#readme",
+  "license": "MIT",
+  "main": "./dist/cjs.cjs",
+  "types": "./types/FileSystem.d.ts",
+  "exports": {
+    "require": "./dist/cjs.cjs",
+    "import": "./dist/mjs.js"
+  },
+  "type": "module",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SkylixGH/Nexo.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/SkylixGH/Nexo/issues"
+  },
+  "dependencies": {
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "eslint": "8.2.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-plugin-import": "2.25.3",
+    "eslint-plugin-jsx-a11y": "6.5.1",
+    "eslint-plugin-react": "7.28.0",
+    "eslint-plugin-react-hooks": "4.3.0",
+    "fs-extra": "^10.0.0",
+    "rollup": "^2.66.1",
+    "typescript": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.13"
+  }
+}

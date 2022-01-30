@@ -1,0 +1,12 @@
+# Build directories
+**/**/build
+**/**/dist
+**/**/types
+
+# Node modules
+**/**/node_modules
+
+# Compiled TS to JS
+*.js
+*.d.ts
+*.js.map
