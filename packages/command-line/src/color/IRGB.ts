@@ -258,17 +258,17 @@ type RGBColorValue =
 
 export default interface IRGB {
     /**
-   * Red color value
-   */
+     * Red color value
+     */
     r: RGBColorValue;
 
     /**
-   * Green color value
-   */
+     * Green color value
+     */
     g: RGBColorValue;
 
     /**
-   * Blue color value
-   */
+     * Blue color value
+     */
     b: RGBColorValue;
 }
