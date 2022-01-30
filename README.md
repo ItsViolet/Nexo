@@ -18,12 +18,12 @@
 -   **Easy to use**: Nexo is very easy to use due to us providing most of the module needed to write an entire application, we do our best to keep the framework API as easy as possible to use!
 -   **Use it everywhere**: Nexo is a full-stack framework, thus, we provide modules for building the server application, plus, support for all client platforms such as desktop, mobile and the web, all with JavaScript/TypeScript!
 
-#### Get Started
+## Get Started
 -   [Installation](./quickSetup/Installation.md)
 -   [Docs (Coming Soon)](https://skylix.net/docs/nexo)
 
-#### Contributing
+## Contributing
 Please visit [./contributing](./contributing) to learn more.
 
-#### License
+## License
 This project is under the [Apache-2.0](./LICENSE) license.
