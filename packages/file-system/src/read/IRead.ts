@@ -6,11 +6,11 @@ import IError from './IError';
  */
 export default class IRead {
     /**
-     * Read a file
+     * Read a file with all contents
      * @param filePath Path to the file
      * @returns The file contents
      */
-    public static async run(filePath: string) {
+    public static async full(filePath: string) {
         if (!fsExtra.existsSync(filePath)) {
             const error = new Error(`Failed to resolve file at "${filePath}" because it doesn't exist`);
             error.name = IError.notFound;
