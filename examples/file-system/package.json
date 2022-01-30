@@ -1,0 +1,7 @@
+{
+  "name": "test",
+  "scripts": {
+    "e:write-read": "node --no-warnings --experimental-specifier-resolution=node ./build/writeRead.js",
+    "watch": "tsc --watch"
+  }
+}

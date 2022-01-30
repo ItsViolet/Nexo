@@ -1,17 +1,5 @@
 {
     "cSpell.words": [
-        "IRGB",
-        "nexojs",
-        "Skylix"
-    ],
-    "editor.detectIndentation": false,
-    "editor.tabSize": 4,
-    "eslint.workingDirectories": [
-        "./packages/command-line",
-        "./packages/nexojs"
-    ],
-    "eslint.validate": [ "javascript", "javascriptreact", "html", "typescriptreact" ],
-    "files.eol": "\n",
-    "eslint.alwaysShowStatus": true,
-    "eslint.packageManager": "yarn"
+        "luxon"
+    ]
 }
